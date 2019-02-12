@@ -1,8 +1,7 @@
-package sachin
+package com.sachin
 
-object FindPathsFromANode extends App {
+object FindPathsFromAllNodes extends App {
 
-  val startNode = "a"
   val inputNodes = List(Node("a", "x"), Node("a", "b"), Node("b", "c"), Node("c", "d"), Node("b", "y"), Node("b", "z"), Node("d", "a"))
 
   def findPaths(allNodes: List[Node], newNode: Node, path: List[Node] = Nil, isVisited: List[String] = Nil, allPaths: List[List[Node]] = Nil): List[List[Node]] = {
@@ -22,7 +21,6 @@ object FindPathsFromANode extends App {
     }
   }
 
-  val startNodes = inputNodes.filter(_.source == startNode)
-  startNodes.flatMap(node => findPaths(inputNodes, node)).foreach(println)
+  inputNodes.flatMap(node => findPaths(inputNodes, node)).foreach(println)
 
 }
